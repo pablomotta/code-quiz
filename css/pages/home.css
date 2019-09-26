@@ -1,0 +1,12 @@
+.description {
+    font-family: 'Roboto Slab', serif;
+}
+.take-action {
+    font-family: 'Big Shoulders Display', cursive;
+}
+.card-image {
+    width: 150px;
+}
+.no-pad-bot {
+    background-image: linear-gradient(to right, #cddc39, #1de9b6);
+}

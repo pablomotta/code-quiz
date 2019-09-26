@@ -1,0 +1,27 @@
+/* General Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display|Roboto+Slab&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+/* basic portfolio colors */
+:root {
+    --teal: #4aaaa5;
+    --font: #777777;
+    --font-darker: #585757;
+    --background: #ffffff;
+    --background-darker: #cccccc;
+    --footer: #666666;
+    --content-border: #dddddd;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+.icon-block .material-icons {
+    font-size: inherit;
+}
