@@ -126,34 +126,35 @@ function renderQuestion() {
 
         var button = document.createElement('button');
         button.textContent = `Option ${questionNumber}:    ${answerOptions[i]} `;
-        console.log(button);
+        // console.log(button);
         answerButtonsDiv.appendChild(button);
     }
 }
 
 // remove questions
-// function removeQuestion() {}
+function removeQuestion() {}
 
-// answerOptionsOl.addEventListener('click', function() {
-//     var correctAnswer = quizData[iterator].correct;
-//     console.log(correctAnswer);
-//     var elementClicked = event.target;
-//     var liString = elementClicked.parentElement.innerText;
-//     var regex = new RegExp(correctAnswer, 'gi');
-//     console.log(liString);
-//     if (liString.match(regex)) {
-//         console.log('it works');
-//         rightAnswer += 1;
-//         iterator += 1;
-//         // renderQuestion();
+//check for right answer
+answerButtonsDiv.addEventListener('click', function() {
+    var correctAnswer = quizData[iterator].correct;
+    // console.log(correctAnswer);
+    var elementClicked = event.target;
+    var liString = elementClicked.parentElement.innerText;
+    var regex = new RegExp(correctAnswer, 'gi');
+    // console.log(liString);
+    if (liString.match(regex)) {
+        console.log('it works');
+        rightAnswer += 1;
+        iterator += 1;
+        // renderQuestion();
 
-//         console.log(rightAnswer);
-//     } else {
-//         console.log('wrong answer');
-//         iterator += 1;
-//         // renderQuestion();
-//     }
-// });
+        console.log(rightAnswer);
+    } else {
+        console.log('wrong answer');
+        iterator += 1;
+        // renderQuestion();
+    }
+});
 
 // var deleteQuestion = document.getElementById('answer-options');
 // console.dir(deleteQuestion.childNodes);
