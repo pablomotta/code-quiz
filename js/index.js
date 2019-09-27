@@ -107,6 +107,7 @@ var scoreText = document.getElementById('score');
 var username = document.getElementById('username');
 var saveScoreBtn = document.getElementById('saveScoreBtn');
 var finalScore = document.getElementById('finalScore');
+var timer = document.getElementById('timer');
 
 var mostRecentScore = localStorage.getItem('mostRecentScore');
 
@@ -141,6 +142,30 @@ function loadNewQuestion() {
     availableQuestions.splice(questionIndex, 1);
     //start accepting answers
     acceptingAnswers = true;
+    startTimer(15, timer);
+}
+
+function startTimer(duration, display) {
+    var timer = duration,
+        minutes,
+        seconds;
+    setInterval(function() {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        display.textContent = minutes + ':' + seconds;
+
+        if (--timer < 0) {
+            quizApp.style.display = 'none';
+            timer = duration;
+            resultsPage.style.display = 'block';
+            // // alert('TIME IS UP');
+            // homePage.style.display = 'none';
+        }
+    }, 1000);
 }
 
 choices.forEach(function(choice) {
@@ -199,6 +224,7 @@ function saveHighScore(event) {
     quizApp.style.display = 'none';
     resultsPage.style.display = 'none';
     homePage.style.display = 'block';
+    location.reload();
 }
 
 saveScoreBtn.addEventListener('click', function() {
