@@ -85,9 +85,9 @@ var quizData = [
         correct: 3
     }
 ];
-
+// global variables
 var currentQuestion = {};
-var takingAnswers = true;
+var acceptingAnswers = false;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
@@ -96,12 +96,20 @@ const CORRECT_BONUS = 10;
 const MAX_QUESTION = 3;
 
 // selectors
-var question = document.querySelector('#question');
+var question = document.getElementById('question');
 var choices = Array.from(document.getElementsByClassName('choice-text'));
-var homePage = document.querySelector('#home');
-var startQuizBtn = document.querySelector('#start-quiz');
-var quizApp = document.querySelector('#quiz-app');
+var homePage = document.getElementById('home');
+var startQuizBtn = document.getElementById('start-quiz');
+var quizApp = document.getElementById('quiz-app');
+var resultsPage = document.getElementById('results');
+var questionTrackerText = document.getElementById('questionTracker');
+var scoreText = document.getElementById('score');
+var username = document.getElementById('username');
+var saveScoreBtn = document.getElementById('saveScoreBtn');
+var finalScore = document.getElementById('finalScore');
+console.log(finalScore);
 
+// functions
 function startQuiz() {
     questionCounter = 0;
     score = 0;
@@ -109,8 +117,18 @@ function startQuiz() {
     loadNewQuestion();
 }
 function loadNewQuestion() {
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTION) {
+        localStorage.setItem('mostRecentScore', score);
+        quizApp.style.display = 'none';
+        homePage.style.display = 'none';
+        resultsPage.style.display = 'block';
+        var mostRecentScore = localStorage.getItem('mostRecentScore');
+        finalScore.innerText = mostRecentScore;
+    }
     questionCounter++;
-    var questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    questionTrackerText.innerText = `${questionCounter}/${MAX_QUESTION}`;
+
+    var questionIndex = Math.floor(Math.random() * availableQuestions.length); // generate random number based on available questions left
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
     //load answers
@@ -118,10 +136,56 @@ function loadNewQuestion() {
         var number = choice.dataset['number'];
         choice.innerText = currentQuestion[`choice${number}`];
     });
+    //remove used questions
+    availableQuestions.splice(questionIndex, 1);
+    //start accepting answers
+    acceptingAnswers = true;
 }
+
+choices.forEach(function(choice) {
+    choice.addEventListener('click', function(e) {
+        if (!acceptingAnswers) return; // check if not accepting answers
+        acceptingAnswers = false;
+        var chosenChoice = e.target;
+        var chosenAnswer = chosenChoice.dataset['number'];
+
+        classToApply = 'incorrect';
+        if (chosenAnswer == currentQuestion.correct) {
+            classToApply = 'correct';
+        }
+        if (classToApply === 'correct') {
+            incrementScore(CORRECT_BONUS);
+        }
+        console.log(classToApply);
+        chosenChoice.classList.add(classToApply);
+        setTimeout(function() {
+            chosenChoice.classList.remove(classToApply);
+            //load new question
+            loadNewQuestion();
+        }, 1000);
+    });
+});
+
+function incrementScore(number) {
+    score += number;
+    scoreText.innerText = score;
+}
+
+function saveHighScore(event) {
+    event.preventDefault();
+    console.log('clicked the save button');
+}
+
+var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
 // start quiz
 startQuizBtn.addEventListener('click', function() {
     quizApp.style.display = 'block';
     homePage.style.display = 'none';
     startQuiz();
+});
+
+username.addEventListener('keyup', function() {
+    console.log(username.value);
+    saveScoreBtn.disabled = !username.value;
 });

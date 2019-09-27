@@ -18,6 +18,9 @@
     --footer: #666666;
     --content-border: #dddddd;
 }
+body {
+    background-image: linear-gradient(to right, #cddc39, #1de9b6);
+}
 
 .icon-block {
     padding: 0 15px;
