@@ -107,7 +107,8 @@ var scoreText = document.getElementById('score');
 var username = document.getElementById('username');
 var saveScoreBtn = document.getElementById('saveScoreBtn');
 var finalScore = document.getElementById('finalScore');
-console.log(finalScore);
+
+var mostRecentScore = localStorage.getItem('mostRecentScore');
 
 // functions
 function startQuiz() {
@@ -122,7 +123,7 @@ function loadNewQuestion() {
         quizApp.style.display = 'none';
         homePage.style.display = 'none';
         resultsPage.style.display = 'block';
-        var mostRecentScore = localStorage.getItem('mostRecentScore');
+        mostRecentScore = localStorage.getItem('mostRecentScore');
         finalScore.innerText = mostRecentScore;
     }
     questionCounter++;
@@ -171,12 +172,38 @@ function incrementScore(number) {
     scoreText.innerText = score;
 }
 
-function saveHighScore(event) {
-    event.preventDefault();
-    console.log('clicked the save button');
-}
+//handle high scores with localStorage
 
 var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+var MAX_HIGH_SCORES = 5;
+
+function saveHighScore(event) {
+    console.log('clicked the save button');
+    event.preventDefault();
+
+    const highScoresObj = {
+        score: mostRecentScore,
+        name: username.value
+    };
+    highScores.push(highScoresObj);
+    highScores.sort(function(a, b) {
+        b.highScoresObj - a.highScoresObj;
+    });
+    highScores.splice(5);
+
+    localStorage.setItem(highScores, JSON.stringify(highScores));
+
+    console.log(highScores);
+
+    quizApp.style.display = 'none';
+    resultsPage.style.display = 'none';
+    homePage.style.display = 'block';
+}
+
+saveScoreBtn.addEventListener('click', function() {
+    saveHighScore();
+});
 
 // start quiz
 startQuizBtn.addEventListener('click', function() {
@@ -186,6 +213,5 @@ startQuizBtn.addEventListener('click', function() {
 });
 
 username.addEventListener('keyup', function() {
-    console.log(username.value);
     saveScoreBtn.disabled = !username.value;
 });

@@ -12,3 +12,7 @@
 .score a {
     margin-top: 50px;
 }
+
+#username {
+    font-size: 1.3rem !important;
+}
