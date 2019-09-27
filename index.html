@@ -17,7 +17,7 @@
     <body>
         <!-- home page -->
         <div id="home">
-            <div class="section no-pad-bot" id="index-banner">
+            <div class="section" id="index-banner">
                 <div class="container">
                     <br />
                     <br />
@@ -40,12 +40,17 @@
                         >
                             Click here to start your quiz!
                         </h4>
+
+                        <h4
+                            id="view-score"
+                            class="waves-effect waves-light btn-large white-text"
+                        >
+                            View High Scores!
+                        </h4>
                     </div>
-                    <br />
-                    <br />
                 </div>
             </div>
-            <div class="container">
+            <!-- <div class="container">
                 <div class="section">
                     <div id="quiz">
                         <div class="col s12 m4 offset-m4">
@@ -62,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- quiz app  -->
         <div id="quiz-app">
@@ -73,10 +78,25 @@
                             <div class="card-content white-text">
                                 <h5 id="question">
                                     <!-- question with Javascript -->
+                                    What is Javascript
                                 </h5>
                                 <br />
-                                <div id="answer-buttons">
-                                    <!-- li with Javascript  -->
+                                <div
+                                    class="choice-container"
+                                    id="answer-buttons"
+                                >
+                                    <p class="choice-text" data-number="1">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="2">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="3">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="4">
+                                        Choice 1
+                                    </p>
                                 </div>
                             </div>
                         </div>
