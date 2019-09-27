@@ -92,8 +92,12 @@ var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
 
+const CORRECT_BONUS = 10;
+const MAX_QUESTION = 3;
+
 // selectors
 var question = document.querySelector('#question');
+var choices = Array.from(document.getElementsByClassName('choice-text'));
 var homePage = document.querySelector('#home');
 var startQuizBtn = document.querySelector('#start-quiz');
 var quizApp = document.querySelector('#quiz-app');
@@ -109,6 +113,11 @@ function loadNewQuestion() {
     var questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
+    //load answers
+    choices.forEach(function(choice) {
+        var number = choice.dataset['number'];
+        choice.innerText = currentQuestion[`choice${number}`];
+    });
 }
 // start quiz
 startQuizBtn.addEventListener('click', function() {
