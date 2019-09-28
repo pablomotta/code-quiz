@@ -11,3 +11,12 @@
 .take-action {
     font-family: 'Big Shoulders Display', cursive;
 }
+
+.scoreCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 300px;
+    margin-top: 40px;
+}

@@ -45,12 +45,26 @@
                             Click here to start your quiz!
                         </h4>
                         <br /><br /><br />
-                        <h4
+                        <!-- <h4
                             id="view-score"
                             class="waves-effect waves-light btn-large white-text blue"
                         >
                             View High Scores!
-                        </h4>
+                        </h4> -->
+                    </div>
+                    <div class="row center">
+                        <div class="col m4 offset-m4">
+                            <h4 class="white-text">
+                                <u>
+                                    Latest Score
+                                </u>
+                            </h4>
+                            <div class="scoreCard white-text">
+                                <h5 id="scoreCardName" class="name"></h5>
+                                <h5 id="scoreLine" class="line"></h5>
+                                <h5 id="scoreCardScore" class="score"></h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -136,7 +150,7 @@
                                     id="username"
                                     class="validate white-text"
                                 />
-                                <label for="email">Username</label><br /><br />
+                                <label for="text">Username</label><br /><br />
                                 <button
                                     type="submit"
                                     class="btn waves-effect waves-light btn-large"
@@ -144,7 +158,7 @@
                                     onClick="saveHighScore(event)"
                                     disabled
                                 >
-                                    Save To High Scores!
+                                    Save To Latest Score!
                                 </button>
                             </div>
                         </div>
@@ -154,6 +168,7 @@
             </div>
         </div>
         <!-- Javascript -->
+        <script src="./js/quizData.js"></script>
         <script src="./js/index.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
