@@ -116,6 +116,7 @@ function startQuiz() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...quizData];
+    startTimer(15, timer);
     loadNewQuestion();
 }
 function loadNewQuestion() {
@@ -142,14 +143,13 @@ function loadNewQuestion() {
     availableQuestions.splice(questionIndex, 1);
     //start accepting answers
     acceptingAnswers = true;
-    startTimer(15, timer);
 }
 
 function startTimer(duration, display) {
     var timer = duration,
         minutes,
         seconds;
-    setInterval(function() {
+    var timeInterval = setInterval(function() {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -160,8 +160,8 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
             quizApp.style.display = 'none';
-            timer = duration;
             resultsPage.style.display = 'block';
+            clearInterval(timeInterval);
             // // alert('TIME IS UP');
             // homePage.style.display = 'none';
         }
