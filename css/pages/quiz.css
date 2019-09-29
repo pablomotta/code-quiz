@@ -57,3 +57,21 @@
 .hud-main-text {
     text-align: center;
 }
+
+@media only screen and (max-width: 700px) {
+    #hud {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 30px;
+    }
+
+    .hud-prefix {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .hud-main-text {
+        text-align: center;
+        font-size: 2rem;
+    }
+}

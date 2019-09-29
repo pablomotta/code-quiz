@@ -3,10 +3,12 @@
     background-image: linear-gradient(to right, #cddc39, #1de9b6);
 }
 #home .section {
-    padding: 150px;
+    padding: 20px;
+    padding-top: 8rem;
 }
 .description {
     font-family: 'Roboto Slab', serif;
+    margin-bottom: 30px;
 }
 .take-action {
     font-family: 'Big Shoulders Display', cursive;
@@ -19,4 +21,14 @@
 
     width: 300px;
     margin-top: 40px;
+}
+
+.welcome {
+    margin-bottom: 4rem;
+}
+
+@media only screen and (max-width: 700px) {
+    .welcome {
+        font-size: 3.3rem;
+    }
 }
