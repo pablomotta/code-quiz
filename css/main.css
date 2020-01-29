@@ -1,0 +1,10 @@
+/* reset */
+@import url('./global/reset.css');
+
+/* global  */
+@import url('./global/general.css');
+
+/* pages  */
+@import url('./pages/result.css');
+@import url('./pages/quiz.css');
+@import url('./pages/home.css');

@@ -3,7 +3,173 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./css/main.css" />
         <title>Code-Quiz</title>
     </head>
-    <body></body>
+    <body>
+        <!-- home page -->
+        <div id="home">
+            <div class="section" id="index-banner">
+                <div class="container">
+                    <br />
+                    <br />
+                    <h1 class="welcome header center white-text">
+                        Welcome to QUICK Code Quiz
+                    </h1>
+                    <br />
+                    <div class="row center">
+                        <h5 class="description header col s12 light white-text">
+                            A place where you can test your Javascript
+                            knowledge.
+                        </h5>
+                        <br /><br />
+                        <h6 class="description header col s12 light white-text">
+                            You have 15 seconds to do so...
+                        </h6>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row center">
+                        <h4
+                            id="start-quiz"
+                            class="waves-effect waves-light btn-large white-text blue"
+                        >
+                            Click here to start your quiz!
+                        </h4>
+                        <br /><br /><br />
+                        <!-- <h4
+                            id="view-score"
+                            class="waves-effect waves-light btn-large white-text blue"
+                        >
+                            View High Scores!
+                        </h4> -->
+                    </div>
+                    <div class="row center">
+                        <div class="col m4 offset-m4 s10 offset-s1">
+                            <h4 class="white-text center">
+                                <u>
+                                    Latest Score
+                                </u>
+                            </h4>
+                            <div class="scoreCard white-text">
+                                <h5 id="scoreCardName" class="name"></h5>
+                                <h5 id="scoreLine" class="line"></h5>
+                                <h5 id="scoreCardScore" class="score"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- quiz app  -->
+        <div id="quiz-app">
+            <div class="container">
+                <div class="white-text" id="hud">
+                    <div id="hud-item">
+                        <p class="hud-prefix">
+                            Question
+                        </p>
+                        <h1 class="hud-main-text" id="questionTracker"></h1>
+                    </div>
+                    <div id="hud-item">
+                        <h1 class="hud-main-text" id="timer"></h1>
+                    </div>
+                    <div id="hud-item">
+                        <p class="hud-prefix">
+                            Score
+                        </p>
+                        <h1 class="hud-main-text" id="score">
+                            0
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m8 offset-m2">
+                        <div id="card" class="card teal lighten-2 center">
+                            <div class="card-content white-text">
+                                <h5 id="question">
+                                    <!-- question with Javascript -->
+                                    What is Javascript
+                                </h5>
+                                <br />
+                                <div
+                                    class="choice-container"
+                                    id="answer-buttons"
+                                >
+                                    <p class="choice-text" data-number="1">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="2">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="3">
+                                        Choice 1
+                                    </p>
+                                    <p class="choice-text" data-number="4">
+                                        Choice 1
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- results page -->
+        <div id="results">
+            <div class="container center">
+                <div class="row">
+                    <div class="score center col m4 offset-m4 s10 offset-s1">
+                        <h1>Results</h1>
+                        <br />
+                        <p id="correct">
+                            Your score is:
+                            <!-- add with js  -->
+                        </p>
+                        <br />
+                        <h1 class="blue-text text-darken-1" id="finalScore">
+                            <!-- add with js  -->
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row center">
+                            <div class="input-field col s4 offset-s4 center">
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    class="validate white-text"
+                                />
+                                <label for="text">Username</label><br /><br />
+                                <button
+                                    type="submit"
+                                    class="btn waves-effect waves-light btn-large"
+                                    id="saveScoreBtn"
+                                    onClick="saveHighScore(event)"
+                                    disabled
+                                >
+                                    Save To Latest Score!
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="./js/quizData.js"></script>
+        <script src="./js/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
 </html>
