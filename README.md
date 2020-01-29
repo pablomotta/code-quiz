@@ -34,4 +34,4 @@ No installation required. This app works automatically when opened in a browser.
 
 [Click here to visit the live website.](https://eat-da-burger-pm.herokuapp.com/)
 
-© 2019 Pablo Motta
+© 2020 Pablo Motta
