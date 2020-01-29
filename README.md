@@ -18,4 +18,8 @@ With this app users can:
 -   Save their scores to high score page database.
 -   Check out the High Score page and if they make it to the top 5 list.
 
+## Prerequisites
+
+-   Web browser like Google Chrome or Safari
+
 © 2019 Pablo Motta
