@@ -22,4 +22,8 @@ With this app users can:
 
 -   Web browser like Google Chrome or Safari
 
+## Installation
+
+No installation required. This app works automatically when opened in a browser.
+
 © 2019 Pablo Motta
