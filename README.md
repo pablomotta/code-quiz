@@ -26,4 +26,8 @@ With this app users can:
 
 No installation required. This app works automatically when opened in a browser.
 
+## Author
+
+-   **Pablo Motta** - [github profile](https://github.com/pablomotta)
+
 © 2019 Pablo Motta
