@@ -30,4 +30,8 @@ No installation required. This app works automatically when opened in a browser.
 
 -   **Pablo Motta** - [github profile](https://github.com/pablomotta)
 
+## Live App
+
+[Click here to visit the live website.](https://eat-da-burger-pm.herokuapp.com/)
+
 © 2019 Pablo Motta
