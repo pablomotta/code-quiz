@@ -18,6 +18,4 @@ With this app users can:
 -   Save their scores to high score page database.
 -   Check out the High Score page and if they make it to the top 5 list.
 
----
-
 © 2019 Pablo Motta
